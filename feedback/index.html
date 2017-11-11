@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Dinner Today</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="A simple webapp for your college that answers one question well: What's for dinner?">
+    <meta name="author" content="Jake Coppinger">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" /> 
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/fonts.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/jquery.serialize-object.js"></script>
+    <script type="text/javascript">
+    window.heap = window.heap || [], heap.load = function(e, t) {
+        window.heap.appid = e, window.heap.config = t = t || {};
+        var r = t.forceSSL || "https:" === document.location.protocol,
+            a = document.createElement("script");
+        a.type = "text/javascript", a.async = !0, a.src = (r ? "https:" : "http:") + "//cdn.heapanalytics.com/js/heap-" + e + ".js";
+        var n = document.getElementsByTagName("script")[0];
+        n.parentNode.insertBefore(a, n);
+        for (var o = function(e) {
+                return function() {
+                    heap.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, p = ["addEventProperties", "addUserProperties", "clearEventProperties", "identify", "removeEventProperty", "setEventProperties", "track", "unsetEventProperty"], c = 0; c < p.length; c++) heap[p[c]] = o(p[c])
+    };
+
+    var analyticsID = "913895360";
+
+    console.log("Accessed from hostname: " + location.hostname);
+
+    if (location.hostname === "localhost" ||
+        location.hostname === "127.0.0.1" ||
+        location.hostname === "" ||
+        location.protocol === "file:"
+    ) {
+        console.log("Appears to be running on local machine.");
+        analyticsID = "3515389294";
+    }
+
+    heap.load(analyticsID);
+    </script>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div id="header">
+            <h1 id="title">dinnertoday.info</h1> 
+            <h1 id="date">{{humanDate}}</h1> 
+        </div>
+        <div id="right-side-container">
+            
+<h1>Feedback</h1>
+<!-- 
+    https://script.google.com/macros/u/1/s/AKfycbx6jc5jiJXbubMY0Zfi8PKkopNrSmAjUX3FBTl4RYI5914WaWv0/exec
+-->
+<form id="test-form">
+    <p><i>This data is going direct to Isabelle so make it count!</i></p>
+
+    <p>How was dinner?
+        <br>5 = excited to get back down to dinner
+        <br>1 = prefer making a toastie or spending money on takeaway
+    </p>
+    <input type="radio" name="rating" value="1">1
+    <input type="radio" name="rating" value="2">2
+    <input type="radio" name="rating" value="3">3
+    <input type="radio" name="rating" value="4">4
+    <input type="radio" name="rating" value="5">5
+    <br>
+    <br>
+    <input type="checkbox" name="vegetarian" value="1">Tick if vegetarian meal
+    <br>
+
+    <input type="checkbox" name="incorrect_meal" value="1">Tick if meal different to menu
+    <br>
+    <br>
+    <br>
+    <label></label>
+    <textarea name="comment" rows="3" cols="47" placeholder="[Optional] Have a comment? Looking for honest, useful feedback. 140 characters max!"></textarea>
+    <br>
+    <br>
+    <label>[Required] Lastly, zid please</label>
+    <input type="text" name="zid" placeholder="z1234567" />
+    <br>
+    <div>
+        <button type="submit" id="submit-form">Send it!</button>
+    </div>
+</form>
+
+            <br>
+            
+        </div>
+        <div id="left-bottom-container">
+             
+        </div>
+
+        <div id="footer-container">
+            <div id="footer">
+                <p>Built by Jake Coppinger
+                    <<a href="mailto:jake@jakecoppinger.com">jake@jakecoppinger.com</a>>. Drop me a line if you have any ideas/feedback/bugs! This project is open source on <a href="https://github.com/jakecoppinger/dinner_today">GitHub</a>, feel free to jump in and collaborate.</p>
+                <p>Feedback data is private by default, though Isabelle is likely to make insights public from time to time.</p>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/js/bundle.js"></script>
+</body>
+
+</html>
